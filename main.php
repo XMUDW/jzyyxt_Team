@@ -77,15 +77,54 @@ $(function(){
 	
 });
 
+//预约讲座按钮
 function book(id) {
 	x=document.getElementById("heihei");  // 找到元素
-	x.innerHTML=id;    // 改变内容
+	
 	var v = $('#'+id).val();
-	if(v=="预约此讲座") {
-		$('#'+id).val("取消预约");
-	}else {
-		$('#'+id).val("预约此讲座");
-	}
+	var method = id.substr(0,3);
+// 	x.innerHTML=method;    // 改变内容
+// 	if(v=="预约此讲座") {
+// 		$('#'+id).val("取消预约");
+		
+// 	}else {
+// 		$('#'+id).val("预约此讲座");
+// 	}
+	jQuery.ajax({
+        url: "book_success.php",  
+        type: "POST",
+        data:{myMethod:method,id:id},
+        dataType: "text",
+        error: function(){  
+            alert('Error loading XML document');  
+        },  
+        success: function(data,status){//如果调用php成功          
+//         	var str = data.toJSONString(); 
+//         	var obj = eval("("+data+")"); 
+//         	alert(data);
+//			var str = JSON.stringify(data);  
+// 			var str1 = JSON.parse(data); 
+//          x.innerHTML=data;  
+//          data  = data.trim();
+//          var content=$.trim(data)+"";
+//          var ok = $.trim("ok")+"";
+            if(data.indexOf("sav_ok")>0) {
+            	$('#'+id).val("取消预约");
+            	//改变元素的id值
+            	document.getElementById(id).setAttribute("id", id.replace(/sav/,"del"));
+          	    alert("恭喜你，预约成功~");
+            }else if (data.indexOf("del_ok")>0){
+            	$('#'+id).val("预约此讲座");
+            	document.getElementById(id).setAttribute("id", id.replace(/del/,"sav"));
+                alert("成功取消预约~");
+
+            }else if (data.indexOf("full")>0) {
+            	alert("由于页面延时，您刚才看到的数据已过期！现讲座预约名额已满，谢谢您对研会工作的支持！");
+                }
+            
+        }
+    });
+	
 }
 </script>
 </html>
