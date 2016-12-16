@@ -7,25 +7,30 @@
 </head>
 
 <body>
+<div class="index_contanier">
+
+	<div class="up_background">
+		<img src="images/logo.png"  class="logo"></div>
+	</div>
 	<div class="login-wrapper">
-		
+		<img src="images/login.jpg" class= "login_img"/>
 		<form name="form_login" id="form_login" action="login.php" method="post">
 			<input type="text" value="账号"
 				onfocus="if(this.value=='账号') {this.value=''}"
 				onblur="if(this.value=='') this.value='账号'" placeholder="账号"
 				data-errortxt="请输入帐号" class="text-input" name="username"
 				id="username" /> 
-		    <input type="password" value="密码"
+		    <input type="text" value="密码"
 				onfocus="if(this.value=='密码') {this.value=''}"
 				onblur="if(this.value=='') this.value='密码'" placeholder="密码"
 				data-errortxt="请输入密码" class="text-input" name="password"
 				id="password" />
 		    <input class="login-btn" type="submit" value="登录" onclick="jcud()"/>
 
-			<input name="btn_reg" type="button" class="register-btn" id="btn_reg"
-				value="注册" onclick="location.href='register.php'" />
+			
 		</form>
 	</div>
+</div>
 </body>
 
 <script language="javascript">

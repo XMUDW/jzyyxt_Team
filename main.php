@@ -4,8 +4,10 @@
 <title>信息科学与技术学院</title>
 <meta http-equiv="Content-Type" content="text/html" ; charset="gb2312">
 <script src="jsq/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="jsq/clock-1.1.0.min.js"></script>
 <link rel="stylesheet" href="css/index.css" type="text/css"
 	media="screen">
+	
 </head>
 
 <body>
@@ -36,16 +38,18 @@
 					</ul>
 				</div>
 			</div>
+			<div class="clock" id="clock2"></div>
 		</div>
 
 		<div class="content_r fr">
 			<div id="right-content" class="main-home">请在左侧菜单选择具体操作</div>
-		
 		</div>
 	</div>
 </body>
 <script type="text/javascript">
 $(document).ready(function() {
+
+	
 	
 });
 
@@ -54,6 +58,11 @@ $(function(){
 		$("#right-content").load("search_chair.php");
 	});
 	$("#book_chair").click(function(){
+		var clock2 = $("#clock2").clock({
+			width: 150,
+			height: 220,
+			theme: 't2'
+		});
 		$("#right-content").load("book_chair.php");
 	});
 	$("#upload_paper").click(function(){
@@ -72,7 +81,7 @@ $(function(){
 		$("#right-content").load("search_chair.php");
 	});
 	$("#exit").click(function(){
-		$("#right-content").load("search_chair.php");
+		location.href = "logout.php";
 	});
 	
 });
@@ -120,6 +129,8 @@ function book(id) {
 
             }else if (data.indexOf("full")>0) {
             	alert("由于页面延时，您刚才看到的数据已过期！现讲座预约名额已满，谢谢您对研会工作的支持！");
+            }else if (data.indexOf("overflow")>0)  {
+            	alert("本学期您已听满5场，不用再预约！！！");
                 }
             
         }

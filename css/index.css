@@ -1,24 +1,57 @@
 /* index.php-----------------------------------------------------------*/
-body, h1, h2, h3, h4, h5, h6, ul, li, ol, dl, dt, dd, p, span, object, iframe, pre, a, abbr, cite, input, select, option {
-    margin: 0;
-    padding: 0;
-    line-height: 24px;
-    font-family: 'Microsoft YaHei';
-    font-weight: normal;
+body, h1, h2, h3, h4, h5, h6, ul, li, ol, dl, dt, dd, p, span, object,
+	iframe, pre, a, abbr, cite, input, select, option {
+	margin: 0;
+	padding: 0;
+	line-height: 24px;
+	font-family: 'Microsoft YaHei';
+	font-weight: normal;
 }
 
 body {
-    font-family: 'Microsoft YaHei';
-    background: #e7ecef;
-    font-size: 12px;
+	font-family: 'Microsoft YaHei';
+	background: #e7ecef;
+	font-size: 12px;
+}
+
+.index_contanier {
+	position: relative;
+}
+
+.index_contanier .up_background {
+	height: 43%;
+    width: 100%;
+	position:fixed;
+	top:0;
+	background-image: url(../images/up_bg.jpg);
+    background-size:repeat;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+   
+}
+
+.logo {
+	height:50%;
+	width:15%;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.login_img {
+	height:8%;
+	width:50%;
+	padding-top: 10px;
+	margin-bottom: 20px;
 }
 
 .login-wrapper {
-	
 	width: 400px;
-	margin: 0px auto 0px auto;
-	padding: 80px 0 50px 0;
+	margin: 10% auto 0px auto;
 	text-align: center;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
+	background:white;
+	border-radius: 5px;
+	position: fixed;
+	left: 40%;
 }
 
 .login-wrapper input {
@@ -42,9 +75,7 @@ body {
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
 
-
-.login-wrapper .login-btn,
-.login-wrapper .register-btn {
+.login-wrapper .login-btn, .login-wrapper .register-btn {
 	clear: both;
 	width: 336px;
 	background-color: #198DDD;
@@ -60,9 +91,9 @@ body {
 	border-radius: 5px;
 }
 
-#password{
-	border-bottom:1px solid #ccc;
-	}
+#password {
+	border-bottom: 1px solid #ccc;
+}
 /*添加按钮样式
 	a {  
     position: relative;  
@@ -78,11 +109,11 @@ a:hover::before, a:hover::after { position: absolute; }
 a:hover::before { content: "\5B"; left: -20px; }  
 a:hover::after { content: "\5D"; right:  -20px; }  
 */
-.login-wrapper 	#password {margin-bottom:30px;}	
+.login-wrapper 	#password {
+	margin-bottom: 30px;
+}
 
-
-.login-wrapper .register-btn:hover,
-.login-wrapper .login-btn:hover {
+.login-wrapper .register-btn:hover, .login-wrapper .login-btn:hover {
 	color: white;
 	background: #004ba0;
 	height: 46px;
@@ -103,202 +134,255 @@ a:hover::after { content: "\5D"; right:  -20px; }
 	background: #004ba0;
 }
 
-
 /* main.php-----------------------------------------------------------*/
 .jzyyxt-toolbar {
 	width: 100%;
 	font-size: 12px;
-    background: #fff;
-    padding: 0;
-    color: #999;
-    border-bottom: 1px solid #e9e9e9;
-    font-family: "Helvetica", "Tahoma, Arial", "sans-serif";
-    font-size: 0.75em;
-    color: #333;
-    line-height: 1.5em;
-    position: relative;
-    top:0;
+	background: #fff;
+	padding: 0;
+	color: #999;
+	font-family: "Helvetica", "Tahoma, Arial", "sans-serif";
+	font-size: 0.75em;
+	color: #333;
+	line-height: 1.5em;
+	position: relative;
+	top: 0;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
-.jzyyxt-toolbar-skin-blue{
+.jzyyxt-toolbar-skin-blue {
 	height: 40px;
-    background: linear-gradient(to bottom, #5ba2db 0%, #4bbfe9 100%, #5ba2db 100%);
-    border-bottom: none;
-   
-    position: fixed;
-    z-index: 9999;
-    top: 0px;
-    margin-top: 0;
+	background: linear-gradient(to bottom, #5ba2db 0%, #4bbfe9 100%, white 100%);
+	position: fixed;
+	z-index: 9999;
+	top: 0px;
+	margin-top: 0;
 }
 
 .jzyyxt-toolbar .container {
 	width: 1170px;
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 .jzyyxt-toolbar .pull-left {
-	float :left;
+	float: left;
+	font-family: "华文细黑";
+	font-size: 18;
+	margin-top: 10px;
+	font-weight: bold;
+	color: #363636;
 }
 
 .jzyyxt-toolbar .pull-right {
-	float :right;
+	float: right;
+	font-family: "华文细黑";
+	font-size: 18;
+	margin-top: 10px;
+	font-weight: bold;
+	color: #363636;
 }
 
 .main-content {
-    width: 1170px;
-    margin: 30px auto;
-    /*background-image: url(../images/poster_2.png);
+	width: 1170px;
+	margin: 30px auto;
+	/*background-image: url(../images/poster_2.png);
     background-size:cover;*/
+	position: relative;
 }
 
 .clearfix:before, .clearfix:after {
-    display: table;
-    content: " ";
+	display: table;
+	content: " ";
 }
 
 .content_l {
-	width: 300px;	
+	width: 300px;
 }
 
 .fl {
-	float:left;
+	float: left;
 }
 
-
 .content_r {
-	width: 850px;	
-	
+	width: 850px;
 }
 
 #right-content {
 	/*内阴影*/
 	/*box-shadow: inset 0px 0px 30px #808080;*/
 	/*外阴影*/
-	box-shadow:0px 0px 8px #808080;
-	
-	
+	box-shadow: 0px 0px 8px #808080;
 }
 
 .fr {
-	float:right;
+	float: right;
 }
-
 
 .categ {
-    background: #fff;
-    margin-top: 50px;
-    box-shadow:0px 0px 8px #808080;
-    
-   
+	background: #fff;
+	margin-top: 50px;
+	box-shadow: 0px 0px 8px #808080;
 }
 
+.clock {
+	position: fixed;
+	z-index: 9998;
+	bottom: 32%;
+	left: 22%;
+}
 
 .mod_title {
-    height: 50px;
-    border-bottom: solid 1px #ebebeb;
-    position: relative;
-    padding: 0 20px;
-    line-height: 50px;
+	height: 50px;
+	border-bottom: solid 1px #ebebeb;
+	position: relative;
+	padding: 0 20px;
+	line-height: 50px;
 }
 
 .mod_title .mod_title_t {
-    line-height: 50px;
+	line-height: 50px;
 }
 
 .mod_title .border_b {
-    height: 2px;
-    position: absolute;
-    left: 20px;
-    bottom: -1px;
-    width: 20px;
-    margin:0 atuo;
-    border-bottom: solid 2px #c00;
+	height: 2px;
+	position: absolute;
+	left: 20px;
+	bottom: -1px;
+	width: 20px;
+	margin: 0 atuo;
+	border-bottom: solid 2px #c00;
 }
 
 .blog_category {
-    padding: 10px 20px;
+	padding: 10px 20px;
 }
 
 .mod_title .mod_title_t label {
-    font-size: 16px;
-    color: #333;
+	font-size: 16px;
+	color: #333;
 }
 
 label {
-    display: inline-block;
-    margin-bottom: 5px;
-    font-weight: bold;
+	display: inline-block;
+	margin-bottom: 5px;
+	font-weight: bold;
 }
 
 ul, li, ol, dl, dd, dt, form {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 .blog_category .category_list li {
-    padding: 15px 0;
-    border-bottom: dashed 1px #c6cfd2;
+	padding: 15px 0;
+	border-bottom: dashed 1px #c6cfd2;
 }
 
 .blog_category .category_list li a {
-    display: inline-block;
-    height: 30px;
-    width: 85px;
-    line-height: 30px;
-    padding-left:40px;
-    margin-right: 8px;
-    font-size: 14px;
-    color: #333;
+	display: inline-block;
+	height: 30px;
+	width: 85px;
+	line-height: 30px;
+	padding-left: 40px;
+	margin-right: 8px;
+	font-size: 14px;
+	color: #333;
 }
 
 .blog_category .category_list li a:last-child {
-    margin-right: 0;
-    
+	margin-right: 0;
 }
 
 .blog_category .category_list li:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 a {
-    outline: none;
-    text-decoration: none;
-    color: #666;
+	outline: none;
+	text-decoration: none;
+	color: #666;
 }
 
-
 a:-webkit-any-link {
-    color: -webkit-link;
-    text-decoration: none;
-    cursor: auto;
+	color: -webkit-link;
+	text-decoration: none;
+	cursor: auto;
 }
 
 .main-home {
 	min-height: 1000px;
 	background: #fff;
-    margin-top: 50px;
-    font-size:25;
-    text-align: center;
-    padding:10px 10px;
-    
-    
+	margin-top: 50px;
+	font-size: 25;
+	text-align: center;
+	padding: 10px 10px;
 }
 
 /*----------------------------------book_chair.php------------------------------------------*/
-
-.chair-wrapper {
-	height: 400px;
-	background: linear-gradient(to bottom, rgba(204,204,204,1) 0%,rgba(255,255,255,1) 99%);
-	margin:0 atuo;
-	border-radius:5px;
-	position: relative;
-	
+#headline {
+	margin-top: 20px;
+	width: 11em;
 }
 
+.chair-wrapper ul {
+	list-style: none;
+	padding: 20px;
+	margin: 0px 20px 20px 20px;
+	color: #000000;
+	background-color: #FFFFFF;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+}
+
+.table {
+	font-size: 18;
+	cursor: default;
+	display: list-item;
+	text-align: -webkit-match-parent;
+	padding: 10px 10px 10px 45px;
+	background-color: #EEEEEE;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+	word-wrap: break-word;
+	word-break: normal;
+	transition: all 0.2s linear;
+	border-radius: 4px;
+	position: relative;
+}
+
+aside {
+	width: 80%;
+	padding-left: 10%;
+	text-align: center;
+}
+
+.table .title {
+	padding-left: 5px;
+	position: absolute;
+	left: 20px;
+	width: 10%;
+}
+
+.chair-wrapper .table:hover {
+	background-color: #DDDDDD;
+	background-position: 20px 50%;
+	padding-left: 55px;
+}
+
+.chair-wrapper {
+	min-height: 500px;
+	margin: 0 atuo;
+	border-radius: 5px;
+	position: relative;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
 
 .chair-wrapper .book-btn {
-	
 	width: 100px;
 	background-color: #5ba2db;
 	color: black;
@@ -311,11 +395,10 @@ a:-webkit-any-link {
 	border: solid;
 	margin: atuo;
 	border-radius: 5px;
-    position: absolute;
-    bottom: 10px;
-    left: 45%;
+	position: absolute;
+	bottom: -10px;
+	left: 45%;
 }
-
 
 .chair-wrapper .book-btn:hover {
 	color: black;
@@ -324,4 +407,21 @@ a:-webkit-any-link {
 	padding: 6px 6px;
 	font-size: 17px;
 	line-height: 26px;
+}
+
+.Split_line {
+	border-bottom: dashed;
+	border-bottom-color: gray;
+	/*
+	background-image: url(../images/split.png);
+    background-size:cover;
+	*/
+}
+
+.chair-wrapper .book_info {
+	font-size: 18;
+	text-align: center;
+	position: absolute;
+	bottom: 10px;
+	left: 45%;
 }
