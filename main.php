@@ -2,8 +2,9 @@
 <html>
 <head>
 <title>信息科学与技术学院</title>
-<meta http-equiv="Content-Type" content="text/html" ; charset="gb2312">
+<meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
 <script src="jsq/jquery-3.1.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="jsq/jquery.blockUI.js"></script>
 <script type="text/javascript" src="jsq/clock-1.1.0.min.js"></script>
 <script type="text/javascript" src="jsq/Filescript.js"></script>
 <link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
@@ -57,12 +58,30 @@
 </body>
 
 <script type="text/javascript">
-$(document).ready(function() {
-
-	
-	
-});
-
+     
+function prompt(alertStr) {
+	 $.blockUI({ 
+           message: '<h1 style ="font-size:18;">'+alertStr+'</h1>', 
+           fadeIn: 700, 
+           fadeOut: 700, 
+           timeout: 2000, 
+           showOverlay: false, 
+           centerY: false, 
+           css: { 
+               width: '250px', 
+               hight: '350px',
+               top: '41%', 
+               left: '42%',
+               border: 'none', 
+               padding: '5px', 
+               backgroundColor: '#000', 
+               '-webkit-border-radius': '10px', 
+               '-moz-border-radius': '10px', 
+               opacity: .6, 
+               color: '#fff' 
+           } 
+       }); 
+}
 
 
 $(function(){
@@ -134,62 +153,22 @@ function book(id) {
             	$('#'+id).val("取消预约");
             	//改变元素的id值
             	document.getElementById(id).setAttribute("id", id.replace(/sav/,"del"));
-          	    alert("恭喜你，预约成功~");
+            	prompt("恭喜你，预约成功~");
             }else if (data.indexOf("del_ok")>0){
             	$('#'+id).val("预约此讲座");
             	document.getElementById(id).setAttribute("id", id.replace(/del/,"sav"));
-                alert("成功取消预约~");
+            	prompt("成功取消预约~");
 
             }else if (data.indexOf("full")>0) {
-            	alert("由于页面延时，您刚才看到的数据已过期！现讲座预约名额已满，谢谢您对研会工作的支持！");
+            	prompt("由于页面延时，您刚才看到的数据已过期！现讲座预约名额已满，谢谢您对研会工作的支持！");
             }else if (data.indexOf("overflow")>0)  {
-            	alert("本学期您已听满5场，不用再预约！！！");
+            	prompt("本学期您已听满5场，不用再预约！！！");
                 }
         }
     });
 	
 }
 
-
-function checkPaperInfo() {
-	var papername = window.upload_form.paper_name.value;
-	var paperselect = window.upload_form.paper_select.value;
-	var paperkey = window.upload_form.paper_key.value;
-	var paperabstract = window.upload_form.paper_abstract.value;
-	var paperincluded = window.upload_form.paper_included.value;
-	var paperauthor = window.upload_form.paper_author.value;
-	var paperteacher = window.upload_form.paper_teacher.value;
-	var paperunit = window.upload_form.paper_unit.value;
-	var paperlab = window.upload_form.paper_lab.value;
-	var paperpublication = window.upload_form.paper_publication.value;
-	var papertime = window.upload_form.paper_time.value;
-	
-	if(papername ==  null ||papername =="") {
-		window.alert("论文标题不能为空");
-		return false;
-		}
-	else if (paperkey=="") {
-		window.alert("关键字不能为空");
-		return false;
-		}
-	else if (paperauthor=="") {
-		window.alert("作者不能为空");
-		return false;
-		}
-	else if (paperlab=="") {
-		window.alert("实验室不能为空");
-		return false;
-		}
-	else if (paperpublication=="") {
-		window.alert("刊物名称不能为空");
-		return false;
-		}
-	else if (papertime=="") {
-		window.alert("发表时间不能为空");
-		return false;
-		}
-	
-}
 
 
 

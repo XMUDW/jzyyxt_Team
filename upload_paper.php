@@ -12,7 +12,7 @@ paper_lab
 paper_publication
 paper_time
 -->
- <form id="upload_form"  method="post" action="upload_success.php"  >
+ <form name="upload_form" id="upload_form" action="upload_success.php" method="post" >
 	<div class='paper-container'>
 		<ul>
 			<li class="table">
@@ -101,10 +101,75 @@ paper_time
 			</li>
 	
 		</ul>
-		<input class='book-btn' type="submit" id = "paper_submit"  value='确认提交' onclick="return checkPaperInfo();" />
+		<input class='book-btn' type="button" id = "paper-submit"  value='确认提交'  />
 	</div>
 	
 </form>
+<script type="text/javascript">
 
+$(document).ready(function() { 
+	$('#paper-submit').click(function() {
+		var papername = window.upload_form.paper_name.value;
+		var paperselect = window.upload_form.paper_select.value;
+		var paperkey = window.upload_form.paper_key.value;
+		var paperabstract = window.upload_form.paper_abstract.value;
+		var paperincluded = window.upload_form.paper_included.value;
+		var paperauthor = window.upload_form.paper_author.value;
+		var paperteacher = window.upload_form.paper_teacher.value;
+		var paperunit = window.upload_form.paper_unit.value;
+		var paperlab = window.upload_form.paper_lab.value;
+		var paperpublication = window.upload_form.paper_publication.value;
+		var papertime = window.upload_form.paper_time.value;
+
+		
+		if(papername =="") {
+			prompt("论文标题不能为空");
+			return false;
+			}
+		else if (paperkey=="") {
+			prompt("关键字不能为空");
+			return false;
+			}
+		else if (paperauthor=="") {
+			prompt("作者不能为空");
+			return false;
+			}
+		else if (paperlab=="") {
+			prompt("实验室不能为空");
+			return false;
+			}
+		else if (paperpublication=="") {
+			prompt("刊物名称不能为空");
+			return false;
+			}
+		else if (papertime=="") {
+			prompt("发表时间不能为空");
+			return false;
+			}
+		else {
+		    //这里编码方式不一样，导致下面用==而不是indexof（）
+			var options = {
+                    url: 'upload_success.php',
+                    type: 'post',
+                    dataType: 'text',
+                    async:false,
+                    data:decodeURIComponent($("#upload_form").serialize(),true),
+                    success: function (data) {
+                        if (data=="error"){
+                        	prompt("账号或者密码错误~");
+                        	
+                        }else if (data=="success") {
+							prompt("提交成功");
+							
+                            }
+                    }
+                };
+                $.ajax(options);
+               return false;
+	    	}
+	});
+}); 
+
+</script>
 <?php
 ?>
