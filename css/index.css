@@ -14,11 +14,11 @@ body {
 	font-size: 12px;
 }
 
-.index_contanier {
+.index_container {
 	position: relative;
 }
 
-.index_contanier .up_background {
+.index_container .up_background {
 	height: 43%;
     width: 100%;
 	position:fixed;
@@ -51,10 +51,10 @@ body {
 	background:white;
 	border-radius: 5px;
 	position: fixed;
-	left: 40%;
+	left:38%;
 }
 
-.login-wrapper input {
+.login-wrapper .text-input {
 	width: 310px;
 	-moz-border-radius: 0px; /* Gecko browsers */
 	-webkit-border-radius: 0px; /* Webkit browsers */
@@ -320,7 +320,7 @@ a:-webkit-any-link {
 }
 
 /*----------------------------------book_chair.php------------------------------------------*/
-#headline {
+.headline {
 	margin-top: 20px;
 	width: 11em;
 }
@@ -338,7 +338,8 @@ a:-webkit-any-link {
 	-webkit-padding-start: 40px;
 }
 
-.table {
+.chair-wrapper .table {
+	min-height:1.8%;
 	font-size: 18;
 	cursor: default;
 	display: list-item;
@@ -360,7 +361,7 @@ aside {
 	text-align: center;
 }
 
-.table .title {
+.chair-wrapper .table .title {
 	padding-left: 5px;
 	position: absolute;
 	left: 20px;
@@ -425,3 +426,101 @@ aside {
 	bottom: 10px;
 	left: 45%;
 }
+
+
+/*----------------------------------upload_paper.php------------------------------------------*/
+.paper-container {
+	min-height: 500px;
+	margin: 0 atuo;
+	border-radius: 5px;
+	position: relative;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+
+.paper-container ul {
+	list-style: none;
+	padding: 20px;
+	margin: 0px 20px 20px 20px;
+	color: #000000;
+	background-color: #FFFFFF;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+}
+
+
+
+.paper-container .table .paper_wrapper {
+	position:absolute;
+	left: 23%;
+	width: 60%;
+	text-align: left;
+	height: auto;
+	}
+
+.table .note {
+	font-size:smaller;
+	color: red;
+	margin-top: 0.5em;
+}
+。table #paper-abstract {
+	height: 1000px;
+}
+.paper-container .table {
+	min-height:1.8%;
+	font-size: 18;
+	cursor: default;
+	display: list-item;
+	text-align: -webkit-match-parent;
+	padding: 10px 10px 20px 40px;
+	background-color: #EEEEEE;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+	word-wrap: break-word;
+	word-break: normal;
+	transition: all 0.2s linear;
+	border-radius: 4px;
+	position: relative;
+}
+
+.paper-container .table .title {
+	padding-left: 5px;
+	position: absolute;
+	text-align:left;
+	left: 20px;
+	width: 20%;
+}
+
+
+.paper-container .book-btn {
+	width: 100px;
+	background-color: #5ba2db;
+	color: black;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal;
+	cursor: pointer;
+	border: solid;
+	margin: atuo;
+	border-radius: 5px;
+	position: absolute;
+	bottom: -40px;
+	left: 45%;
+}
+
+.paper-container .book-btn:hover {
+	color: black;
+	background: #fff;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 17px;
+	line-height: 26px;
+}
+
+
