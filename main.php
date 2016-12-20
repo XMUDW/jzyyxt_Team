@@ -6,17 +6,34 @@
 <script src="jsq/jquery-3.1.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="jsq/jquery.blockUI.js"></script>
 <script type="text/javascript" src="jsq/clock-1.1.0.min.js"></script>
-<script type="text/javascript" src="jsq/Filescript.js"></script>
+<script type="text/javascript" src="jsq/ajaxfileupload.js"></script>
 <link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
 
-
 </head>
+<?php 
+session_start ();
+$stuno = $_SESSION ['stuno'];
+require_once 'openDB.php';
+?>
 
 <body>
 	<div class="jzyyxt-toolbar jzyyxt-toolbar-skin-blue">
 		<div class="container">
 			<div class="pull-left">讲座预约系统</div>
-			<div class="pull-right">登陆|注册</div>
+			<div class="pull-right">
+			<?php $sqlstr = "select * from yq_info where stuno ='$stuno'";  
+				  $result = mysql_query ( $sqlstr ) or die ( "数据库请求失败！" ); 
+				  $rows = mysql_fetch_array ( $result );
+				  $stuname = $rows ['stuname'];
+				  
+				  $h=date('G');
+				  $msg = '';
+				  if ($h<11) $msg ='早上好';
+				  else if ($h<13) $msg ='中午好';
+				  else if ($h<17) $msg ='下午好';
+				  else $msg ='晚上好';
+				  
+				  echo $msg.','.$stuname;?>同学</div>
 		</div>
 	</div>
 
@@ -52,13 +69,20 @@
 		</div>
 
 		<div class="content_r fr">
-			<div id="right-content" class="main-home">请在左侧菜单选择具体操作</div>
+			<div id="right-content" class="main-home">
+
+			</div>
 		</div>
 	</div>
 </body>
 
 <script type="text/javascript">
-     
+
+
+$(document).ready(function() {
+	$("#right-content").load("index.html");
+});
+
 function prompt(alertStr) {
 	 $.blockUI({ 
            message: '<h1 style ="font-size:18;">'+alertStr+'</h1>', 
@@ -173,4 +197,5 @@ function book(id) {
 
 
 </script>
+
 </html>

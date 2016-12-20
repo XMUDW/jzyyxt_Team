@@ -30,13 +30,14 @@ while ( $rows = mysql_fetch_array ( $result ) ) {
 <div class='chair-wrapper'>
 	<ul>
 		<li class="table">
-			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
-		<li class="table">
-			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
-		<li class="table">
 			<b class="title"> 讲座名称</b>
 			<aside><?php echo  $row['chName']?></aside>
 		</li>
+		<li class="table">
+			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
+		<li class="table">
+			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
+		
 		<li class="table">
 			<b class="title"> 开展学期</b><?php echo  $row['chTerm']?></li>
 		<li class="table">
@@ -63,13 +64,14 @@ while ( $rows = mysql_fetch_array ( $result ) ) {
 <div class='chair-wrapper'>
 	<ul>
 		<li class="table">
-			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
-		<li class="table">
-			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
-		<li class="table">
 			<b class="title"> 讲座名称</b>
 			<aside><?php echo  $row['chName']?></aside>
 		</li>
+		<li class="table">
+			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
+		<li class="table">
+			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
+		
 		<li class="table">
 			<b class="title"> 开展学期</b><?php echo  $row['chTerm']?></li>
 		<li class="table">
@@ -99,13 +101,14 @@ while ( $rows = mysql_fetch_array ( $result ) ) {
 <div class='chair-wrapper'>
 	<ul>
 		<li class="table">
-			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
-		<li class="table">
-			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
-		<li class="table">
 			<b class="title"> 讲座名称</b>
 			<aside><?php echo  $row['chName']?></aside>
 		</li>
+		<li class="table">
+			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
+		<li class="table">
+			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
+		
 		<li class="table">
 			<b class="title"> 开展学期</b><?php echo  $row['chTerm']?></li>
 		<li class="table">
@@ -133,13 +136,14 @@ while ( $rows = mysql_fetch_array ( $result ) ) {
 <div class='chair-wrapper'>
 	<ul>
 		<li class="table">
-			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
-		<li class="table">
-			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
-		<li class="table">
 			<b class="title"> 讲座名称</b>
 			<aside><?php echo  $row['chName']?></aside>
 		</li>
+		<li class="table">
+			<b class="title"> 讲座日期</b><?php echo  $row['chData']?></li>
+		<li class="table">
+			<b class="title"> 主 讲 人</b><?php echo  $row['chAnchor']?></li>
+		
 		<li class="table">
 			<b class="title"> 开展学期</b><?php echo  $row['chTerm']?></li>
 		<li class="table">

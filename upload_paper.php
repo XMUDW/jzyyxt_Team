@@ -12,7 +12,7 @@ paper_lab
 paper_publication
 paper_time
 -->
- <form name="upload_form" id="upload_form" action="upload_success.php" method="post" >
+ <form name="upload_form" id="upload_form" action="upload_success.php" method="post" enctype="multipart/form-data" >
 	<div class='paper-container'>
 		<ul>
 			<li class="table">
@@ -96,8 +96,11 @@ paper_time
 			</li>
 			<li class="table">
 				<b class="title">上传文件</b>
-	<!--  		 <input type="file" name="image_file" id="image_file" onchange="fileSelected();" />
-				 <input type="button" value="Upload" onclick="startUploading()" />-->
+				
+				<span class="paper_wrapper">
+					<input id="fileToUpload" type="file" size="20" name="fileToUpload" class="input">
+					<button id="buttonUpload">上传</button>
+				</span>
 			</li>
 	
 		</ul>
@@ -105,10 +108,44 @@ paper_time
 	</div>
 	
 </form>
+
 <script type="text/javascript">
 
 $(document).ready(function() { 
+	
+	 $("#buttonUpload").click(function(){     
+	       //加载图标   
+	       /* $("#loading").ajaxStart(function(){
+	          $(this).show();
+	       }).ajaxComplete(function(){
+	          $(this).hide();
+	       });*/
+	        //上传文件
+	        
+	     var options = {
+	          url:'upload.php',//处理图片脚本
+	          secureuri :false,
+	          fileElementId :'fileToUpload',//file控件id
+	          dataType : 'text',
+	          success : function (data, status){
+	                  if(data=='ok'){
+	                	  prompt("上传成功");
+	                  }else if(data=='errorType'){
+	                	  prompt("只能上传PDF、doc格式的文件");
+	                  }else if(data=='errorTransfer'){
+	                	  prompt("上传失败");
+	                  }else if(data=='errorSize'){
+	                	  prompt("上传文件过大");
+	                  }
+	              }
+	          };
+	       $.ajaxFileUpload(options);
+		  return false;
+	    });
+
+	
 	$('#paper-submit').click(function() {
+		
 		var papername = window.upload_form.paper_name.value;
 		var paperselect = window.upload_form.paper_select.value;
 		var paperkey = window.upload_form.paper_key.value;
@@ -148,6 +185,7 @@ $(document).ready(function() {
 			}
 		else {
 		    //这里编码方式不一样，导致下面用==而不是indexof（）
+		    //直接给出提示信息不实更好？
 			var options = {
                     url: 'upload_success.php',
                     type: 'post',
@@ -155,13 +193,8 @@ $(document).ready(function() {
                     async:false,
                     data:decodeURIComponent($("#upload_form").serialize(),true),
                     success: function (data) {
-                        if (data=="error"){
-                        	prompt("账号或者密码错误~");
-                        	
-                        }else if (data=="success") {
-							prompt("提交成功");
-							
-                            }
+                    	alert(data);
+                    	$('#upload_form')[0].reset();
                     }
                 };
                 $.ajax(options);
@@ -169,6 +202,8 @@ $(document).ready(function() {
 	    	}
 	});
 }); 
+
+
 
 </script>
 <?php

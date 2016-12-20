@@ -14,7 +14,7 @@
 <div class="index_container">
 
 	<div class="up_background">
-		<img src="images/logo.png"  class="logo"></div>
+		<img src="images/logo.png"  class="logo" ></div>
 	
 	<div class="login-wrapper">
 		<img src="images/login.jpg" class= "login_img"/>

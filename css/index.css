@@ -185,9 +185,9 @@ a:hover::after { content: "\5D"; right:  -20px; }
 .jzyyxt-toolbar .pull-right {
 	float: right;
 	font-family: "华文细黑";
-	font-size: 18;
-	margin-top: 10px;
-	font-weight: bold;
+	font-size: 16;
+	margin-top: 18px;
+	font-weight: normal;
 	color: #363636;
 }
 
@@ -225,6 +225,7 @@ a:hover::after { content: "\5D"; right:  -20px; }
 
 .fr {
 	float: right;
+	
 }
 
 .categ {
@@ -326,6 +327,7 @@ a:-webkit-any-link {
 	font-size: 25;
 	text-align: center;
 	padding: 10px 10px;
+	overflow: hidden;
 }
 
 /*----------------------------------book_chair.php------------------------------------------*/
@@ -362,6 +364,10 @@ a:-webkit-any-link {
 	transition: all 0.2s linear;
 	border-radius: 4px;
 	position: relative;
+}
+
+.chair-wrapper .table:FIRST-CHILD {
+	background: #5ba2db;
 }
 
 aside {
@@ -449,6 +455,7 @@ aside {
 
 
 .paper-container ul {
+	
 	list-style: none;
 	padding: 20px;
 	margin: 0px 20px 20px 20px;
@@ -460,8 +467,6 @@ aside {
 	-webkit-margin-end: 0px;
 	-webkit-padding-start: 40px;
 }
-
-
 
 .paper-container .table .paper_wrapper {
 	position:absolute;
@@ -530,6 +535,67 @@ aside {
 	padding: 6px 6px;
 	font-size: 17px;
 	line-height: 26px;
+}
+
+
+/*----------------------------------search_chair.php------------------------------------------*/
+
+
+.myPaper-wrapper {
+	min-height: 300px;
+	margin: 0 atuo;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+
+.myPaper-wrapper ul{
+	list-style: none;
+	padding: 20px;
+	margin: 0px 20px 20px 20px;
+	color: #000000;
+	background-color: #FFFFFF;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+}
+
+
+.myPaper-wrapper .table {
+min-height:1.8%;
+	font-size: 18;
+	cursor: default;
+	display: list-item;
+	text-align: -webkit-match-parent;
+	padding: 10px 10px 10px 45px;
+	background-color: #EEEEEE;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+	word-wrap: break-word;
+	word-break: normal;
+	transition: all 0.2s linear;
+	border-radius: 4px;
+	position: relative;
+}
+
+.myPaper-wrapper .table:FIRST-CHILD {
+	background: #5ba2db;
+}
+
+.myPaper-wrapper .table .title{
+	font-weight:bold;
+	padding-left: 5px;
+	position: absolute;
+	left: 20px;
+	width: 10%;
+}
+
+.myPaper-wrapper .table:hover {
+	background-color: #DDDDDD;
+	background-position: 20px 50%;
+	padding-left: 55px;
 }
 
 
