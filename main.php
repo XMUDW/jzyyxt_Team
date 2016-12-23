@@ -7,7 +7,7 @@
 <script type="text/javascript" src="jsq/jquery.blockUI.js"></script>
 <script type="text/javascript" src="jsq/clock-1.1.0.min.js"></script>
 <script type="text/javascript" src="jsq/ajaxfileupload.js"></script>
-
+<script type="text/javascript" src="jsq/Filescript.js"></script>
 
 <link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
 </head>

@@ -710,7 +710,7 @@ aside {
 .tab.container {
 	position: relative;
 	background: white;
-	padding: 3em;
+	padding-top: 3em;
 	
 }
 
@@ -870,7 +870,6 @@ aside {
 /*----------------------------------m_manage_chair.php------------------------------------------*/
 
 
-
 .manage_chair-container {
 	width: 100%;
 	min-height: 330px;
@@ -878,7 +877,7 @@ aside {
 	border-radius: 5px;
 	position: relative;
 	margin-bottom: 10px;
-	margin-top: 14%;
+	margin-top: 5%;
 }
 
 .manage_chair-container ul {
@@ -1037,28 +1036,99 @@ tbody {
 	padding-bottom: 3px;
 	vertical-align: middle;
 }
-
-.manage_chair-container .manage_chair_table .Pagination {
-	width: 50px;
-	height: 25px;
-	background-color: #fff;
-	color: black;
-	font-size: 16px;
-	line-height: 26px;
-	font-weight: normal;
+/*===========================Pagination-Button=======================================*/
+.Pagination {
+	background-color: #999;
+	background-image: -webkit-linear-gradient(hsla(0, 0%, 100%, .05),
+		hsla(0, 0%, 0%, .1));
+	background-image: -moz-linear-gradient(hsla(0, 0%, 100%, .05),
+		hsla(0, 0%, 0%, .1));
+	background-image: -ms-linear-gradient(hsla(0, 0%, 100%, .05),
+		hsla(0, 0%, 0%, .1));
+	background-image: -o-linear-gradient(hsla(0, 0%, 100%, .05),
+		hsla(0, 0%, 0%, .1));
+	background-image: linear-gradient(hsla(0, 0%, 100%, .05),
+		hsla(0, 0%, 0%, .1));
+	border: none;
+	border-radius: .2em;
+	box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, .2), inset 0 2px 0
+		hsla(0, 0%, 100%, .1), inset 0 1.2em 0 hsla(0, 0%, 100%, 0.1), inset 0
+		-.2em 0 hsla(0, 0%, 100%, .1), inset 0 -.25em 0 hsla(0, 0%, 0%, .25),
+		0 .25em .25em hsla(0, 0%, 0%, .05);
+	color: #444;
 	cursor: pointer;
-	border: solid thin;
-	margin: atuo;
-	border-radius: 3px;
-	text-align: center;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	line-height: 1.5;
+	margin: 0 .5em 1em;
+	padding: .5em 1.5em .75em;
+	position: relative;
+	text-decoration: none;
+	text-shadow: 0 1px 1px hsla(0, 0%, 100%, .25);
+	vertical-align: middle;
 }
 
-.manage_chair-container .manage_chair_table .Pagination:hover {
-	color: black;
-	border: solid thin;
-	background: #fff;
-	height: 25px;
-	font-size: 16px;
-	line-height: 26px;
-	cursor: pointer;
+.Pagination:hover {
+	outline: none;
 }
+
+.Pagination:hover, .Pagination:focus {
+	box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, .2), inset 0 2px 0
+		hsla(0, 0%, 100%, .1), inset 0 1.2em 0 hsla(0, 0%, 100%, .1), inset 0
+		-.2em 0 hsla(0, 0%, 100%, .1), inset 0 -.25em 0 hsla(0, 0%, 0%, .25),
+		inset 0 0 0 3em hsla(0, 0%, 100%, .2), 0 .25em .25em
+		hsla(0, 0%, 0%, .05);
+}
+
+.Pagination:active {
+	box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, .2), inset 0 2px 0
+		hsla(0, 0%, 100%, .1), inset 0 1.2em 0 hsla(0, 0%, 100%, .1), inset 0
+		0 0 3em hsla(0, 0%, 100%, .2), inset 0 .25em .5em hsla(0, 0%, 0%, .05),
+		0 -1px 1px hsla(0, 0%, 0%, .1), 0 1px 1px hsla(0, 0%, 100%, .25);
+	margin-top: .25em;
+	outline: none;
+	padding-bottom: .5em;
+}
+
+/* Blue */
+.blue {
+	background-color: #D1EEEE;
+}
+
+/* White */
+.white {
+	background-color: #eee;
+}
+/* Gray */
+.gray {
+	background-color: gray;
+}
+/* Regular */
+.regular {
+	border-radius: .5em;
+}
+
+/* Red */
+
+		.red {
+		    background-color: #ff6c6f;
+		}
+/* Yellow */
+
+		.yellow {
+		    background-color: #fff6c6;
+		}	
+		
+
+/* Small */
+.small {
+	font-size: .75em;
+}
+
+/* Small */
+.smaller {
+	font-size: .75em;
+}
+

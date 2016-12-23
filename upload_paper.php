@@ -193,7 +193,7 @@ $(document).ready(function() {
                     async:false,
                     data:decodeURIComponent($("#upload_form").serialize(),true),
                     success: function (data) {
-                    	alert(data);
+                    	prompt(data);
                     	$('#upload_form')[0].reset();
                     }
                 };

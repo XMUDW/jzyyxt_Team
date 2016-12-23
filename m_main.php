@@ -2,7 +2,7 @@
 <html>
 <head>
 <title>信息科学与技术学院</title>
-<meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html" ; charset="gb2312">
 <script src="jsq/jquery-3.1.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="jsq/jquery.blockUI.js"></script>
 <script type="text/javascript" src="jsq/clock-1.1.0.min.js"></script>
