@@ -3,101 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-<title>three.js css3d - 元素周期表</title>
-<style>
-html, body {
-	height: 100%;
-}
-
-body {
-	background-color: #e7ecef;
-	margin: 0;
-	font-family: Helvetica, sans-serif;;
-	overflow: hidden;
-}
-
-a {
-	color: #ffffff;
-}
-
-#info {
-	position: absolute;
-	width: 100%;
-	color: #ffffff;
-	padding: 5px;
-	font-family: Monospace;
-	font-size: 13px;
-	font-weight: bold;
-	text-align: center;
-	z-index: 1;
-}
-
-#menu {
-	position: absolute;
-	top: 60px;
-	left:13%;
-	width: 100%;
-	text-align: center;
-}
-
-.element {
-	width: 120px;
-	height: 160px;
-	box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
-	border: 1px solid rgba(127,255,255,0.25);
-	text-align: center;
-	cursor: default;
-}
-
-.element:hover {
-	box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
-	border: 1px solid rgba(127,255,255,0.75);
-}
-
-	.element .number {
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		font-size: 12px;
-		color: rgba(127,255,255,0.75);
-	}
-
-	.element .symbol {
-		position: absolute;
-		top: 40px;
-		left: 0px;
-		right: 0px;
-		font-size: 60px;
-		font-weight: bold;
-		color: rgba(255,255,255,0.75);
-		text-shadow: 0 0 10px rgba(0,255,255,0.95);
-	}
-
-	.element .details {
-		position: absolute;
-		bottom: 15px;
-		left: 0px;
-		right: 0px;
-		font-size: 12px;
-		color: rgba(127,255,255,0.75);
-	}
-
-button {
-	color: rgba(0,134,139,0.75);
-	background: transparent;
-	outline: 1px solid rgba(82,139,139,0.75);
-	border: 0px;
-	padding: 5px 10px;
-	cursor: pointer;
-}
-button:hover {
-	background-color: rgba(0,255,255,0.5);
-}
-button:active {
-	color: #000000;
-	background-color: rgba(0,255,255,0.75);
-}
-</style>
+<title></title>
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
 </head>
 <body>
 <script src="jsq/three.min.js"></script>
@@ -107,10 +14,10 @@ button:active {
 
 <div id="container"></div>
 <div id="menu">
-<button id="table">TABLE</button>
-<button id="sphere">SPHERE</button>
-<button id="helix">HELIX</button>
-<button id="grid">GRID</button>
+<button id="table" disabled="disabled">TABLE</button>
+<button id="sphere" disabled="disabled">SPHERE</button>
+<button id="helix" disabled="disabled">HELIX</button>
+<button id="grid" disabled="disabled">GRID</button>
 </div>
 
 <script>
@@ -134,6 +41,13 @@ var table = [
 	"系", "Indium", "114.818", 13, 5,
 	"统", "Tin", "118.71", 14, 5,
 	
+	"请", "Hassium", "(270)", 8, 7,
+	"选", "Meitnerium", "(276)", 9, 7,
+	"择", "Darmstadium", "(281)", 10, 7,
+	"具", "Roentgenium", "(280)", 11, 7,
+	"体", "Copernicium", "(285)", 12, 7,
+	"操", "Unutrium", "(284)", 13, 7,
+	"作", "Flerovium", "(289)", 14, 7,
 ];
 
 var camera, scene, renderer;
@@ -147,18 +61,18 @@ animate();
 
 function init() {
 
-	camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
+	camera = new THREE.PerspectiveCamera( 40, window.innerWidth/2.3 / window.innerHeight, 1, 10000 );
 	camera.position.z = 3000;
 
 	scene = new THREE.Scene();
-
+	var vectorS = new THREE.Vector3(50,50,50);
 	// table
 
 	for ( var i = 0; i < table.length; i += 5 ) {
 
 		var element = document.createElement( 'div' );
 		element.className = 'element';
-		element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
+		element.style.backgroundColor = 'rgba(105,105,105,' + ( Math.random() * 0.5 + 0.25 ) + ')';
 
 		var number = document.createElement( 'div' );
 		number.className = 'number';
@@ -186,13 +100,13 @@ function init() {
 		//
 
 		var object = new THREE.Object3D();
-		object.position.x = ( table[ i + 3 ] * 140 ) - 2700;
+		object.position.x = ( table[ i + 3 ] * 140 ) - 1500;
 		object.position.y = - ( table[ i + 4 ] * 180 ) + 1500;
 
 		targets.table.push( object );
 
 	}
-
+	vectorS.add(scene);
 	// sphere
 
 	var vector = new THREE.Vector3();
@@ -209,7 +123,6 @@ function init() {
 		object.position.z = 800 * Math.cos( phi );
 
 		vector.copy( object.position ).multiplyScalar( 2 );
-
 		object.lookAt( vector );
 		targets.sphere.push( object );
 
@@ -256,7 +169,7 @@ function init() {
 	//
 
 	renderer = new THREE.CSS3DRenderer();
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( window.innerWidth/2.3, window.innerHeight );
 	renderer.domElement.style.position = 'absolute';
 	document.getElementById( 'container' ).appendChild( renderer.domElement );
 
@@ -334,10 +247,10 @@ function transform( targets, duration ) {
 
 function onWindowResize() {
 
-	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.aspect = window.innerWidth/1.8 / window.innerHeight;
 	camera.updateProjectionMatrix();
 
-	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.setSize( window.innerWidth/1.8, window.innerHeight );
 
 	render();
 

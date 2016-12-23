@@ -7,8 +7,9 @@
 <script type="text/javascript" src="jsq/jquery.blockUI.js"></script>
 <script type="text/javascript" src="jsq/clock-1.1.0.min.js"></script>
 <script type="text/javascript" src="jsq/ajaxfileupload.js"></script>
-<link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
 
+
+<link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
 </head>
 <?php 
 session_start ();
@@ -69,6 +70,7 @@ require_once 'openDB.php';
 		</div>
 
 		<div class="content_r fr">
+		<img  src="images/xmu3.jpg" class="imglogo"/>
 			<div id="right-content" class="main-home">
 
 			</div>

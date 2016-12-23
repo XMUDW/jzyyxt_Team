@@ -8,6 +8,7 @@ body, h1, h2, h3, h4, h5, h6, ul, li, ol, dl, dt, dd, p, span, object,
 	font-weight: normal;
 }
 
+
 body {
 	font-family: 'Microsoft YaHei';
 	background: #e7ecef;
@@ -20,36 +21,35 @@ body {
 
 .index_container .up_background {
 	height: 43%;
-    width: 100%;
-	position:fixed;
-	top:0;
+	width: 100%;
+	position: fixed;
+	top: 0;
 	background-image: url(../images/up_bg.jpg);
-    background-size:repeat;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
-   
+	background-size: repeat;
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
 .logo {
-	height:50%;
-	width:15%;
+	height: 50%;
+	width: 15%;
 	padding-top: 10px;
 	padding-left: 10px;
 }
 
 .login_img {
-	height:8%;
-	width:50%;
+	height: 8%;
+	width: 50%;
 	padding-top: 10px;
 	margin-bottom: 20px;
 }
 
 .xmu_img {
-	opacity:0.2;
-	height:15%;
-	width:20%;
+	opacity: 0.2;
+	height: 15%;
+	width: 20%;
 	position: fixed;
 	bottom: 9%;
-	left:38%;
+	left: 38%;
 }
 
 .login-wrapper {
@@ -57,10 +57,12 @@ body {
 	margin: 10% auto 0px auto;
 	text-align: center;
 	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
-	background:white;
+	background: white;
 	border-radius: 5px;
 	position: fixed;
-	left:38%;
+	left: 38%;
+	font-size: 15;
+	color: gray;
 }
 
 .login-wrapper .text-input {
@@ -214,6 +216,7 @@ a:hover::after { content: "\5D"; right:  -20px; }
 
 .content_r {
 	width: 850px;
+	position: relative;
 }
 
 #right-content {
@@ -225,7 +228,6 @@ a:hover::after { content: "\5D"; right:  -20px; }
 
 .fr {
 	float: right;
-	
 }
 
 .categ {
@@ -321,18 +323,28 @@ a:-webkit-any-link {
 }
 
 .main-home {
-	min-height: 1000px;
+	min-height: 870px;
 	background: #fff;
 	margin-top: 50px;
 	font-size: 25;
 	text-align: center;
 	padding: 10px 10px;
 	overflow: hidden;
+	/*background-image: url(../images/xmu4.png);
+	background-size: contain;*/
 }
 
+.imglogo {
+	opacity: 0.2;
+	width: 850px;
+	margin: 0 atuo;
+	z-index: 0;
+	position: fixed;
+	bottom: 0%;
+	left: 36%;
+}
 /*----------------------------------book_chair.php------------------------------------------*/
 .headline {
-	margin-top: 20px;
 	width: 11em;
 }
 
@@ -347,10 +359,11 @@ a:-webkit-any-link {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	-webkit-padding-start: 40px;
+	background: transparent;
 }
 
 .chair-wrapper .table {
-	min-height:1.8%;
+	min-height: 20px;
 	font-size: 18;
 	cursor: default;
 	display: list-item;
@@ -442,7 +455,6 @@ aside {
 	left: 45%;
 }
 
-
 /*----------------------------------upload_paper.php------------------------------------------*/
 .paper-container {
 	min-height: 500px;
@@ -453,9 +465,7 @@ aside {
 	margin-top: 10px;
 }
 
-
 .paper-container ul {
-	
 	list-style: none;
 	padding: 20px;
 	margin: 0px 20px 20px 20px;
@@ -466,26 +476,29 @@ aside {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	-webkit-padding-start: 40px;
+	background: transparent;
 }
 
 .paper-container .table .paper_wrapper {
-	position:absolute;
+	position: absolute;
 	left: 23%;
 	width: 60%;
 	text-align: left;
 	height: auto;
-	}
+}
 
 .table .note {
-	font-size:smaller;
+	font-size: smaller;
 	color: red;
 	margin-top: 0.5em;
 }
+
 。table #paper-abstract {
 	height: 1000px;
 }
+
 .paper-container .table {
-	min-height:1.8%;
+	min-height: 20px;
 	font-size: 18;
 	cursor: default;
 	display: list-item;
@@ -504,11 +517,10 @@ aside {
 .paper-container .table .title {
 	padding-left: 5px;
 	position: absolute;
-	text-align:left;
+	text-align: left;
 	left: 20px;
 	width: 20%;
 }
-
 
 .paper-container .book-btn {
 	width: 100px;
@@ -537,10 +549,7 @@ aside {
 	line-height: 26px;
 }
 
-
 /*----------------------------------search_chair.php------------------------------------------*/
-
-
 .myPaper-wrapper {
 	min-height: 300px;
 	margin: 0 atuo;
@@ -549,7 +558,7 @@ aside {
 	margin-top: 10px;
 }
 
-.myPaper-wrapper ul{
+.myPaper-wrapper ul {
 	list-style: none;
 	padding: 20px;
 	margin: 0px 20px 20px 20px;
@@ -560,11 +569,11 @@ aside {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	-webkit-padding-start: 40px;
+	background: transparent;
 }
 
-
 .myPaper-wrapper .table {
-min-height:1.8%;
+	min-height: 20px;
 	font-size: 18;
 	cursor: default;
 	display: list-item;
@@ -584,8 +593,8 @@ min-height:1.8%;
 	background: #5ba2db;
 }
 
-.myPaper-wrapper .table .title{
-	font-weight:bold;
+.myPaper-wrapper .table .title {
+	font-weight: bold;
 	padding-left: 5px;
 	position: absolute;
 	left: 20px;
@@ -598,4 +607,458 @@ min-height:1.8%;
 	padding-left: 55px;
 }
 
+/*----------------------------------m_add_admin.php------------------------------------------*/
+.add_admin-container {
+	width: 100%;
+	min-height: 330px;
+	margin: 0 atuo;
+	border-radius: 5px;
+	position: relative;
+	margin-bottom: 10px;
+	margin-top: 14%;
+}
 
+.add_admin-container ul {
+	width: 95%;
+	list-style: none;
+	padding: 20px;
+	color: #000000;
+	background-color: #FFFFFF;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+	background: transparent;
+}
+
+.add_admin-container .table .paper_wrapper {
+	position: absolute;
+	left: 40%;
+	width: 60%;
+	text-align: left;
+	height: auto;
+}
+
+.table .note {
+	font-size: smaller;
+	color: red;
+	margin-top: 0.5em;
+}
+
+.add_admin-container .table {
+	width: 60%;
+	margin-left: 12%;
+	min-height: 20px;
+	font-size: 18;
+	cursor: default;
+	display: list-item;
+	text-align: -webkit-match-parent;
+	padding: 10px 10px 20px 40px;
+	background-color: #EEEEEE;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+	word-wrap: break-word;
+	word-break: normal;
+	transition: all 0.2s linear;
+	border-radius: 4px;
+	position: relative;
+}
+
+.add_admin-container .table .title {
+	padding-left: 5px;
+	position: absolute;
+	text-align: left;
+	left: 20px;
+	width: 20%;
+}
+
+.add_admin-container .add_admin-btn {
+	width: 100px;
+	background-color: #5ba2db;
+	color: black;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal;
+	cursor: pointer;
+	border: solid;
+	margin: atuo;
+	border-radius: 5px;
+	position: absolute;
+	top: 200px;
+	left: 43%;
+}
+
+.add_admin-container .add_admin-btn:hover {
+	color: black;
+	background: #fff;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 17px;
+	line-height: 26px;
+}
+
+
+
+/*----------------------------------m_add_student.php------------------------------------------*/
+
+
+/* ===========Tab Styling ===========*/
+
+.tab.container {
+	position: relative;
+	background: white;
+	padding: 3em;
+	
+}
+
+.tab-group {
+	position: relative;
+	border: 1px solid #eee;
+	margin-top: 2.5em;
+	border-radius: 0 0 10px 10px;
+	font-size: 18;
+}
+
+.tab-group section {
+	opacity: 0;
+	height: 0;
+	padding: 0 1em;
+	overflow: hidden;
+	transition: opacity 0.4s ease, height 0.4s ease;
+	font-size: 18;
+}
+
+.tab-group section.active {
+	opacity: 1;
+	height: auto;
+	overflow: visible;
+}
+
+.tab-nav {
+	list-style: none;
+	margin: -2.5em -1px 0 0;
+	padding: 0;
+	height: 2.5em;
+	overflow: hidden;
+}
+
+.tab-nav li {
+	display: inline;
+}
+
+.tab-nav li a {
+	top: 1px;
+	position: relative;
+	display: block;
+	float: left;
+	border-radius: 10px 10px 0 0;
+	background: #eee;
+	line-height: 2em;
+	padding: 0 1em;
+	text-decoration: none;
+	color: grey;
+	margin-top: .5em;
+	margin-right: 1px;
+	transition: background .2s ease, line-height .2s ease, margin .2s ease;
+}
+
+.tab-nav li.active a {
+	background: #5ba2db;
+	color: white;
+	line-height: 2.5em;
+	margin-top: 0;
+}
+
+
+
+.add_student-container {
+	width: 100%;
+	min-height: 330px;
+	margin: 0 atuo;
+	border-radius: 5px;
+	position: relative;
+	margin-bottom: 10px;
+	margin-top: 14%;
+}
+
+.add_student-container ul {
+	width: 95%;
+	list-style: none;
+	padding: 20px;
+	color: #000000;
+	background-color: #FFFFFF;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+	background: transparent;
+}
+
+.add_student-container .table .paper_wrapper {
+	position: absolute;
+	left: 40%;
+	width: 60%;
+	text-align: left;
+	height: auto;
+}
+
+
+.add_student-container .table {
+	width: 60%;
+	margin-left: 12%;
+	min-height: 20px;
+	font-size: 18;
+	cursor: default;
+	display: list-item;
+	text-align: -webkit-match-parent;
+	padding: 10px 10px 20px 40px;
+	background-color: #EEEEEE;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+	word-wrap: break-word;
+	word-break: normal;
+	transition: all 0.2s linear;
+	border-radius: 4px;
+	position: relative;
+}
+
+.add_student-container .table aside {
+	font-size: small;
+}
+
+
+.add_student-container .table .title {
+	padding-left: 5px;
+	position: absolute;
+	text-align: left;
+	left: 20px;
+	width: 20%;
+}
+
+.add_student-container .add_student-btn {
+	width: 100px;
+	background-color: #5ba2db;
+	color: black;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal;
+	cursor: pointer;
+	border: solid;
+	margin: atuo;
+	border-radius: 5px;
+	position: absolute;
+	top: 290px;
+	left: 43%;
+}
+
+.add_student-container .add_student-btn:hover {
+	color: black;
+	background: #fff;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 17px;
+	line-height: 26px;
+}
+
+
+/*----------------------------------m_manage_chair.php------------------------------------------*/
+
+
+
+.manage_chair-container {
+	width: 100%;
+	min-height: 330px;
+	margin: 0 atuo;
+	border-radius: 5px;
+	position: relative;
+	margin-bottom: 10px;
+	margin-top: 14%;
+}
+
+.manage_chair-container ul {
+	width: 95%;
+	list-style: none;
+	padding: 20px;
+	color: #000000;
+	background-color: #FFFFFF;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 1em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 40px;
+	background: transparent;
+}
+
+.manage_chair-container .table .paper_wrapper {
+	position: absolute;
+	left: 40%;
+	width: 60%;
+	text-align: left;
+	height: auto;
+}
+
+
+.manage_chair-container .table {
+	width: 60%;
+	margin-left: 12%;
+	min-height: 20px;
+	font-size: 18;
+	cursor: default;
+	display: list-item;
+	text-align: -webkit-match-parent;
+	padding: 10px 10px 20px 40px;
+	background-color: #EEEEEE;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #DDDDDD;
+	word-wrap: break-word;
+	word-break: normal;
+	transition: all 0.2s linear;
+	border-radius: 4px;
+	position: relative;
+}
+
+.manage_chair-container .table aside {
+	font-size: small;
+}
+
+
+.manage_chair-container .table .title {
+	padding-left: 5px;
+	position: absolute;
+	text-align: left;
+	left: 20px;
+	width: 20%;
+}
+
+.manage_chair-container .manage_chair-btn {
+	width: 100px;
+	background-color: #5ba2db;
+	color: black;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal;
+	cursor: pointer;
+	border: solid;
+	margin: atuo;
+	border-radius: 5px;
+	position: absolute;
+	top: 290px;
+	left: 43%;
+}
+
+.manage_chair-container .manage_chair-btn:hover {
+	color: black;
+	background: #fff;
+	height: 46px;
+	padding: 6px 6px;
+	font-size: 17px;
+	line-height: 26px;
+}
+
+/* ===========table Styling ===========*/
+
+.manage_chair-container .manage_chair_table {
+	text-align: center;
+	border-collapse: collapse; /*消除列之间的空白*/
+	width: 100%;
+	margin-bottom: 4px;
+	margin-top: 4px;
+	border-color: grey;
+}
+
+tbody {
+	display: table-row-group;
+	vertical-align: middle;
+	border-color: inherit;
+}
+
+.manage_chair-container .manage_chair_table tr:FIRST-CHILD {
+	display: table-row;
+	background: #5ba2db;
+	border: 0px solid #d4d4d4;
+}
+
+.manage_chair-container .manage_chair_table tr:LAST-CHILD{
+	display: table-row;
+	background: #5ba2db;
+	border: 0px solid #d4d4d4;
+}
+
+.manage_chair-container .manage_chair_table tr:LAST-CHILD td{
+	display: table-cell;
+	line-height: 2em;
+	min-width: 24px;
+	border: 0px;
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+}
+
+.manage_chair-container .manage_chair_table tr th {
+	display: table-cell;
+	line-height: 2em;
+	min-width: 24px;
+	border: 0px;
+	padding: 5px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: top;
+}
+
+.manage_chair-container .manage_chair_table tr th:FIRST-CHILD {
+	border-radius: 5px 0 0 0;
+}
+
+.manage_chair-container .manage_chair_table tr th:LAST-CHILD {
+	border-radius: 0 5px 0 0;
+}
+
+.manage_chair-container .manage_chair_table tr {
+	display: table-row;
+	vertical-align: inherit;
+}
+
+.manage_chair-container .manage_chair_table tr td {
+	display: table-cell;
+	line-height: 2em;
+	min-width: 24px;
+	border: 1px solid #d4d4d4;
+	padding: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	vertical-align: middle;
+}
+
+.manage_chair-container .manage_chair_table .Pagination {
+	width: 50px;
+	height: 25px;
+	background-color: #fff;
+	color: black;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal;
+	cursor: pointer;
+	border: solid thin;
+	margin: atuo;
+	border-radius: 3px;
+	text-align: center;
+}
+
+.manage_chair-container .manage_chair_table .Pagination:hover {
+	color: black;
+	border: solid thin;
+	background: #fff;
+	height: 25px;
+	font-size: 16px;
+	line-height: 26px;
+	cursor: pointer;
+}

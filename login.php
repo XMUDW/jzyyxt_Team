@@ -4,25 +4,43 @@ session_start ();
 $_SESSION ['stuno'] = $_POST ["username"];
 $stuno = $_POST ["username"];
 $stupassword = strtoupper ( md5 ( $_POST ["password"] ) );
-// $_SESSION['stuno'] = null;
+$_SESSION['userType'] = $_POST['userType'];
+$userType = $_POST['userType'];
+require_once 'openDB.php';
 
-include 'sys_conf.inc';
+$msg = "";
 
-$connection = @mysql_connect ( $DBHOST, $DBUSER, $DBPWD ) or die ( "无法连接数据库！" );
-@mysql_query ( "set names 'gb2312" );
-@mysql_select_db ( $DBNAME ) or die ( "无法选择数据库！" );
 
 // 在这添加权限认证
-$query = "select * from yq_info where stuno='$stuno'";
-$result = @mysql_query ( $query, $connection ) or die ( "数据库请求失败！" );
-$password = "stupassword";
-if ($row = mysql_fetch_array ( $result )) {
-	if ($row [$password] == $stupassword) {
-		echo "success";
-	} else {
-		
-		echo "error";
+if($userType=="student") {
+	$query = "select * from yq_info where stuno='$stuno'";
+	$result = @mysql_query ( $query, $connection ) or die ( "数据库请求失败！" );
+	$password = "stupassword";
+	
+	if ($row = mysql_fetch_array ( $result )) {
+		if ($row [$password] == $stupassword) {
+			$msg = "studentsuccess";
+		} else {
+	
+			$msg ="error";
+		}
+	}else {
+		$msg = "null";
+	}
+}elseif ($userType=="manager") {
+	$query = "select * from yq_adminuser where yq_username='$stuno'";
+	$result = @mysql_query ( $query, $connection ) or die ( "数据库请求失败！" );
+	if ($row = mysql_fetch_array ( $result )) {
+		if ($row ["yq_password"] == $stupassword) {
+			$msg ="managersuccess";
+		} else {
+	
+			$msg ="error";
+		}
+	}else {
+		$msg = "null";
 	}
 }
+echo $msg;
 
 ?>

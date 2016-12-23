@@ -19,18 +19,17 @@
 	<div class="login-wrapper">
 		<img src="images/login.jpg" class= "login_img"/>
 		<form name="form_login" id="form_login" action="login.php" method="post">
-			<input type="text" value="账号"
-				onfocus="if(this.value=='账号') {this.value=''}"
-				onblur="if(this.value=='') this.value='账号'" placeholder="账号"
-				data-errortxt="请输入帐号" class="text-input" name="username"
-				id="username" /> 
-		    <input type="text" value="密码"
-				onfocus="if(this.value=='密码') {this.value=''}"
-				onblur="if(this.value=='') this.value='密码'" placeholder="密码"
-				data-errortxt="请输入密码" class="text-input" name="password"
-				id="password" />
-				
-		    <input class="login-btn" type="submit" id="login-btn" value="登录" />
+			<input type="text" autocomplete="off" placeholder="账号" class="text-input" name="username" id="username" /><br>
+		    <input type="password"  
+		    placeholder="密码                初始密码为123456" data-errortxt="请输入密码" class="text-input" name="password" id="password" /><br>
+		  
+			  用户类型:<select name="userType" id="userType" style="width: 50%;margin-left:%;">
+					<option value="student">学生</option>
+					
+					<option value="manager">管理员</option>
+					
+			</select><br>
+			<input class="login-btn" type="submit" id="login-btn" value="登录" />
 
 		</form>
 	</div>
@@ -45,12 +44,12 @@ $(document).ready(function() {
     $('#login-btn').click(function() { 
     	var username = window.form_login.username.value;
     	var password = window.form_login.password.value;
-    	if(username =="账号") {
-    		prompt("账号不能为空~");
+    	if(username =="") {
+    		prompt("账号不能为空");
     		return false;
     	}
-    	else if (password=="密码") {
-    		prompt("密码不能为空~");
+    	else if (password=="") {
+    		prompt("密码不能为空");
     		return false;
     		}
     	else {
@@ -62,11 +61,14 @@ $(document).ready(function() {
                     data: $("#form_login").serialize(),
                     success: function (data) {
                         if (data.indexOf("error") > 0){
-                        	prompt("账号或者密码错误~");
-                        }else if (data.indexOf("success")>0) {
-							prompt("登陆成功~");
+                        	prompt("账号或者密码错误");
+                        }else if (data.indexOf("studentsuccess")>0) {
 							location.href = "main.php";
-                            }
+                        }else if (data.indexOf("managersuccess")>0) {
+							location.href = "m_main.php";
+                        }else if (data.indexOf("null")>0) {
+                        	prompt("用户不存在");
+                        }
                     }
                 };
                 $.ajax(options);
