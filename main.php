@@ -4,14 +4,23 @@
 <title>信息科学与技术学院</title>
 <meta http-equiv="Content-Type" content="text/html" ; charset="utf-8">
 <script src="jsq/jquery-3.1.1.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="jsq/jquery.blockUI.js"></script>
+
+<!-- <script type="text/javascript" src="jsq/jquery.blockUI.js"></script> -->
+
 <script type="text/javascript" src="jsq/clock-1.1.0.min.js"></script>
 <script type="text/javascript" src="jsq/ajaxfileupload.js"></script>
 <script type="text/javascript" src="jsq/Filescript.js"></script>
 
+<!--提示框  -->
+<script type="text/javascript" src="jsq/jquery.alertable.js"></script>
+<script type="text/javascript" src="jsq/velocity.min.js"></script>
+<script type="text/javascript" src="jsq/velocity.ui.min.js"></script>
+
 <link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/jquery.alertable.css" type="text/css" media="screen">
 </head>
 <?php 
+require_once 'CheckSession.php';
 session_start ();
 $stuno = $_SESSION ['stuno'];
 require_once 'openDB.php';
@@ -66,11 +75,11 @@ require_once 'openDB.php';
 					</ul>
 				</div>
 			</div>
-			<div class="clock" id="clock2"></div>
+			
 		</div>
-
 		<div class="content_r fr">
 		<img  src="images/xmu3.jpg" class="imglogo"/>
+		
 			<div id="right-content" class="main-home">
 
 			</div>
@@ -82,44 +91,18 @@ require_once 'openDB.php';
 
 
 $(document).ready(function() {
-	$("#right-content").load("index.html");
+	$("#right-content").load("index1.html");
 });
 
 function prompt(alertStr) {
-	 $.blockUI({ 
-           message: '<h1 style ="font-size:18;">'+alertStr+'</h1>', 
-           fadeIn: 700, 
-           fadeOut: 700, 
-           timeout: 2000, 
-           showOverlay: false, 
-           centerY: false, 
-           css: { 
-               width: '250px', 
-               hight: '350px',
-               top: '41%', 
-               left: '42%',
-               border: 'none', 
-               padding: '5px', 
-               backgroundColor: '#000', 
-               '-webkit-border-radius': '10px', 
-               '-moz-border-radius': '10px', 
-               opacity: .6, 
-               color: '#fff' 
-           } 
-       }); 
+	$.alertable.alert(alertStr);
 }
-
 
 $(function(){
 	$("#search_chair").click(function(){
 		$("#right-content").load("search_chair.php");
 	});
 	$("#book_chair").click(function(){
-		var clock2 = $("#clock2").clock({
-			width: 150,
-			height: 220,
-			theme: 't3'
-		});
 		$("#right-content").load("book_chair.php");
 	});
 	$("#upload_paper").click(function(){
@@ -127,16 +110,16 @@ $(function(){
 		
 	});
 	$("#my_paper").click(function(){
-		$("#right-content").load("search_chair.php");
+		$("#right-content").load("search_mypaper.php");
 	});
-	$("#search_paper").click(function(){
-		$("#right-content").load("search_chair.php");
+	$("#search_chair").click(function(){
+		$("#right-content").load("search_mychair.php");
 	});
 	$("#operation_guide").click(function(){
 		$("#right-content").load("search_chair.php");
 	});
 	$("#change_password").click(function(){
-		$("#right-content").load("search_chair.php");
+		$("#right-content").load("modify_pwd.php");
 	});
 	$("#exit").click(function(){
 		location.href = "logout.php";
@@ -169,7 +152,7 @@ function book(id) {
 //         	var str = data.toJSONString(); 
 //         	var obj = eval("("+data+")"); 
 //         	alert(data);
-//			var str = JSON.stringify(data);  
+//			var str = JSON.stringify(data);  $('#'+id).attr("disabled","true");
 // 			var str1 = JSON.parse(data); 
 //          x.innerHTML=data;  
 //          data  = data.trim();
@@ -180,6 +163,7 @@ function book(id) {
             	//改变元素的id值
             	document.getElementById(id).setAttribute("id", id.replace(/sav/,"del"));
             	prompt("恭喜你，预约成功~");
+            	
             }else if (data.indexOf("del_ok")>0){
             	$('#'+id).val("预约此讲座");
             	document.getElementById(id).setAttribute("id", id.replace(/del/,"sav"));
@@ -189,6 +173,10 @@ function book(id) {
             	prompt("由于页面延时，您刚才看到的数据已过期！现讲座预约名额已满，谢谢您对研会工作的支持！");
             }else if (data.indexOf("overflow")>0)  {
             	prompt("本学期您已听满5场，不用再预约！！！");
+                }
+            else if (data.indexOf("forbidden")>0)  {
+            	prompt("由于你之前缺席讲座，禁止预约本次讲座！");
+            	
                 }
         }
     });

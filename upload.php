@@ -1,4 +1,5 @@
 <?php
+require_once 'CheckSession.php';
 session_start();
 
 $_SESSION ['uploaded'] = false;

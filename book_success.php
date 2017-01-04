@@ -1,4 +1,5 @@
 <?php 
+require_once 'CheckSession.php';
 session_start();
 
 //学号
@@ -31,9 +32,13 @@ if($method == "sav") {
 			$sql1 = "update yq_chair set chBookReady = chBookReady-1 where id ='$yqBookChair'";
 			mysql_query($sql1) or die("数据库请求失败！");
 			
-			
+			//插入yq_bookChair 表
 			$sql2 = "insert into yq_bookChair (yqBookChair,yqBookNum,yqBookTime) values ('$yqBookChair','$stuno','$nowTime')";
 			mysql_query($sql2) or die("数据库请求失败！");
+			
+			//插入yq_clickcard 表
+			$sql3 = "insert into yq_clickcard (yqChair,yqNum) values ('$yqBookChair','$stuno')";
+			mysql_query($sql3) or die("数据库请求失败！");
 			echo "sav_ok";
 		}
 		
@@ -44,10 +49,13 @@ if($method == "sav") {
 	$sql1 = "update yq_chair set chBookReady = chBookReady+1 where id ='$yqBookChair'";
 	mysql_query($sql1) or die("数据库请求失败！");
 	
-	
+	//插入yq_bookChair 表
 	$sql2 = "delete from yq_bookChair where yqBookChair = '$yqBookChair' and yqBookNum = '$stuno'";
 	mysql_query($sql2) or die("数据库请求失败！");
 	
+	//插入yq_clickcard 表
+	$sql2 = "delete from yq_clickcard where yqChair = '$yqBookChair' and yqNum = '$stuno'";
+	mysql_query($sql2) or die("数据库请求失败！");
 	echo "del_ok";
 }
 

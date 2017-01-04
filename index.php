@@ -3,25 +3,31 @@
 <head>
 <title>信息科学与技术学院</title>
 <meta  http-equiv="Content-Type" content="text/html"; charset="gb2312">
+<meta name="viewpoint" content="width=device-width,initial-scale=1"/>
 <script src="jsq/jquery-3.1.1.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="jsq/jquery.blockUI.js"></script>
 
 <link rel="stylesheet" href="css/index.css" type="text/css" media="screen">
-
+<!--提示框  -->
+<script type="text/javascript" src="jsq/jquery.alertable.js"></script>
+<script type="text/javascript" src="jsq/velocity.min.js"></script>
+<script type="text/javascript" src="jsq/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="css/jquery.alertable.css" type="text/css" media="screen">
 </head>
 
 <body >
 <div class="index_container">
 
 	<div class="up_background">
-		<img src="images/logo.png"  class="logo" ></div>
+		<img src="images/logo.png"  class="logo" >
+	</div>
 	
 	<div class="login-wrapper">
 		<img src="images/login.jpg" class= "login_img"/>
 		<form name="form_login" id="form_login" action="login.php" method="post">
 			<input type="text" autocomplete="off" placeholder="账号" class="text-input" name="username" id="username" /><br>
 		    <input type="password"  
-		    placeholder="密码                初始密码为123456" data-errortxt="请输入密码" class="text-input" name="password" id="password" /><br>
+		    placeholder="初始密码为123456" data-errortxt="请输入密码" class="text-input" name="password" id="password" /><br>
 		  
 			  用户类型:<select name="userType" id="userType" style="width: 50%;margin-left:%;">
 					<option value="student">学生</option>
@@ -33,7 +39,11 @@
 
 		</form>
 	</div>
-	<img src="images/xmu.png" class= "xmu_img"/>
+	<div class="xmu_img" >
+	<br>
+		©2006-2017         厦门大学信息科学与技术学院 <br> 
+		@copyright by 信息科学与技术学院网络部
+	</div>
 </div>
 
 </body>
@@ -51,7 +61,7 @@ $(document).ready(function() {
     	else if (password=="") {
     		prompt("密码不能为空");
     		return false;
-    		}
+    	}
     	else {
     		var options = {
                     url: 'login.php',
@@ -60,13 +70,13 @@ $(document).ready(function() {
                     async:false,
                     data: $("#form_login").serialize(),
                     success: function (data) {
-                        if (data.indexOf("error") > 0){
+                        if (data=="error"){
                         	prompt("账号或者密码错误");
-                        }else if (data.indexOf("studentsuccess")>0) {
+                        }else if (data=="studentsuccess") {
 							location.href = "main.php";
-                        }else if (data.indexOf("managersuccess")>0) {
+                        }else if (data=="managersuccess") {
 							location.href = "m_main.php";
-                        }else if (data.indexOf("null")>0) {
+                        }else if (data=="null") {
                         	prompt("用户不存在");
                         }
                     }
@@ -81,27 +91,7 @@ $(document).ready(function() {
 }); 
      
 function prompt(alertStr) {
-	 $.blockUI({ 
-           message: '<h1 style ="font-size:18;">'+alertStr+'</h1>', 
-           fadeIn: 700, 
-           fadeOut: 700, 
-           timeout: 2000, 
-           showOverlay: false, 
-           centerY: false, 
-           css: { 
-               width: '250px', 
-               hight: '350px',
-               top: '41%', 
-               left: '41%',
-               border: 'none', 
-               padding: '5px', 
-               backgroundColor: '#000', 
-               '-webkit-border-radius': '10px', 
-               '-moz-border-radius': '10px', 
-               opacity: .6, 
-               color: '#fff' 
-           } 
-       }); 
+	 $.alertable.alert(alertStr);
 }
 
 
