@@ -64,10 +64,10 @@ require_once 'openDB.php';
 							<a href="#0" data-type="modal-trigger" id="search_chair">查询讲座</a><a href="#1" data-type="modal-trigger" id="book_chair">预约讲座</a>
 						</li>
 						<li>
-							<a href="#0" data-type="modal-trigger" id="upload_paper">论文上传</a><a href="#1" data-type="modal-trigger" id="my_paper">我的论文</a>
+							<a href="#0" data-type="modal-trigger" id="search_paper">论文搜索</a><a href="#1" data-type="modal-trigger" id="my_paper">我的论文</a>
 						</li>
-						<li>
-							<a href="#0" data-type="modal-trigger" id="search_paper">论文搜索</a><a href="#1" data-type="modal-trigger" id="operation_guide">操作手册</a>
+						<li id = "mediablock">
+							<a href="#0" data-type="modal-trigger" id="upload_paper">论文上传</a><a href="#1" data-type="modal-trigger" id="operation_guide">操作手册</a>
 						</li>
 						<li>
 							<a href="#0" data-type="modal-trigger" id="change_password">修改密码</a><a href="#1" data-type="modal-trigger" id="exit">退出系统</a>
@@ -85,6 +85,11 @@ require_once 'openDB.php';
 			</div>
 		</div>
 	</div>
+	<div class="footer" >
+	<br>
+		©2006-2017         厦门大学信息科学与技术学院 <br> 
+		@copyright by 信息科学与技术学院网络部
+	</div>
 </body>
 
 <script type="text/javascript">
@@ -99,21 +104,20 @@ function prompt(alertStr) {
 }
 
 $(function(){
-	$("#search_chair").click(function(){
-		$("#right-content").load("search_chair.php");
-	});
 	$("#book_chair").click(function(){
 		$("#right-content").load("book_chair.php");
 	});
 	$("#upload_paper").click(function(){
 		$("#right-content").load("upload_paper.php");
-		
 	});
 	$("#my_paper").click(function(){
 		$("#right-content").load("search_mypaper.php");
 	});
 	$("#search_chair").click(function(){
 		$("#right-content").load("search_mychair.php");
+	});
+	$("#search_paper").click(function(){
+		$("#right-content").load("search_paper.php");
 	});
 	$("#operation_guide").click(function(){
 		$("#right-content").load("search_chair.php");
@@ -182,9 +186,6 @@ function book(id) {
     });
 	
 }
-
-
-
 
 </script>
 

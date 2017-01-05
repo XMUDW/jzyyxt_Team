@@ -1,5 +1,5 @@
-
 <h class="headline"> 讲座预约 </h>
+<div class="Split_line"></div>
 <div class="clock" id="clock2"></div>
 <?php
 require_once 'CheckSession.php';
@@ -29,12 +29,21 @@ $status = $row2['yqChair'];
 // echo $status;
 if(mysql_num_rows($result)==0) {
 	?>
-	<div class="myPaper-wrapper">
+	<div class="chair-wrapper">
 		<ul >
-			<li class="table">
-				目前还没有讲座可以预约，请关注相关信息！
+			<li class="table" style="margin-left: -5%;">
+				提示
 			</li>
-		
+			<li class="table" style="min-height: 10%;margin-left: -5%;">
+			目前还没有讲座可以预约<br>
+			关注学院公众号，获得最新动态！
+				<div class="erweima">
+					<div class="light">
+						<img src="images/light.png">
+					</div>
+					<img src="https://adl.netease.com/d/g/yys/c/fabpcb/qr" style="width: 100%; height: 100%;display: block;">
+				</div>
+			</li>
 		</ul>
 	</div>
 <?php 
@@ -77,7 +86,7 @@ while ( $rows = mysql_fetch_array ( $result ) ) {
 			</ul>
 		</div>
 		
-		<div class="Split_line"></div>
+		<div class="Split_line" style="margin-top: 0;"></div>
 		
 		<?php 
 // 		$status = $status-1;

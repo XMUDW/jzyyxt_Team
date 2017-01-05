@@ -1,7 +1,7 @@
+<h class="headline">讲座名单</h>
+<div class="Split_line"></div>
 <?php require_once 'CheckSession.php';
 ?>
-<br>
-讲 座 名 单
 <div class='manage_chair-container'>
 
 	<table class="manage_chair_table" style="width: 80%;margin-left: 100px;">

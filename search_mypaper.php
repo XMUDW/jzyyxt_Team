@@ -1,4 +1,5 @@
 <h class="headline"> 我的论文集</h>
+<div class="Split_line"></div>
 <?php
 require_once 'CheckSession.php';
 session_start ();
@@ -17,7 +18,6 @@ if(mysql_num_rows($result)==0) {
 			</li>
 		
 		</ul>
-		<div class="Split_line"></div>
 	</div>
 <?php 
 }else {

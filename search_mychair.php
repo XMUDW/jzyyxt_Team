@@ -1,4 +1,5 @@
 <h class="headline">已约讲座 </h>
+<div class="Split_line"></div>
 <?php
 require_once 'CheckSession.php';
 

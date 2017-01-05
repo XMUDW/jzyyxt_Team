@@ -123,17 +123,7 @@ $('#add_admin_confirm').click(function() {
 			return false;
 			}
 		else{
-		 $.alertable.confirm('确定要修改么？',{
-		 		show: function() {
-				        $(this.overlay).velocity('transition.fadeIn');        
-				        $(this.modal).velocity('transition.flipBounceYIn');
-				      },
-				      hide: function() {
-				        $(this.overlay).velocity('transition.fadeOut');
-				        $(this.modal).velocity('transition.perspectiveUpOut');
-				      } 	
-		 }
-		 ).then(function() {
+		 $.alertable.confirm('确定要修改么？').then(function() {
 
 		var options = {
                 url: 'm_admin_control.php',

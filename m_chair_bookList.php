@@ -1,3 +1,5 @@
+<h class="headline">预约名单</h>
+<div class="Split_line"></div>
 <?php require_once 'CheckSession.php';
 ?>
 <br>

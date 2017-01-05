@@ -106,13 +106,18 @@ require_once 'openDB.php';
 			</div>
 		</div>
 	</div>
+	<div class="footer" >
+	<br>
+		©2006-2017         厦门大学信息科学与技术学院 <br> 
+		@copyright by 信息科学与技术学院网络部
+	</div>
 </body>
  
 <script type="text/javascript">
 
 
 $(document).ready(function() {
-	$("#right-content").load("index.html");
+	$("#right-content").load("index1.html");
 });
 
 function prompt(alertStr) {

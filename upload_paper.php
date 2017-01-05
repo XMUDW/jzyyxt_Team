@@ -11,6 +11,8 @@ paper_lab
 paper_publication
 paper_time
 -->
+<h class="headline"> 上传论文</h>
+<div class="Split_line"></div>
 <?php require_once 'CheckSession.php';?>
  <form name="upload_form" id="upload_form" action="upload_success.php" method="post" enctype="multipart/form-data" >
 	<div class='paper-container'>
@@ -104,7 +106,7 @@ paper_time
 			</li>
 	
 		</ul>
-		<input class='book-btn' type="button" id = "paper-submit"  value='确认提交'  />
+		<input class='book-btn' type="button" id = "paper-submit"  value='确认提交' "/>
 	</div>
 	
 </form>

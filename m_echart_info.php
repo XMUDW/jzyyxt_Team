@@ -1,3 +1,5 @@
+<h class="headline">网站流量</h>
+<div class="Split_line"></div>
 <div id="echart" style="width: 700px;height:500px;margin-left: 70px;margin-top: 10%;"></div>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
