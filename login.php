@@ -1,6 +1,6 @@
 <?php
 session_start ();
-setcookie('PHPSESSID', session_id(), time()+1800,'/');
+setcookie('PHPSESSID', session_id(), time()+10,'/');
 $_SESSION ['stuno'] = $_POST ["username"];
 $stuno = $_POST ["username"];
 $stupassword = strtoupper ( md5 ( $_POST ["password"] ) );

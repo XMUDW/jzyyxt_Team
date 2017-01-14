@@ -56,10 +56,12 @@ if(isset($_GET['operation'])){
 		$strTerm = ($_GET['term']=='')?"":$_GET['term'];
 		$term = ($_GET['term']=='')?"全部":$_GET['term'];
 		if($_GET['term']=='') {
-			$sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' GROUP BY stuno  HAVING total $strBuilder limit $offset,$pagesize ";
+// 			$sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' group by yq_info.stuno,yq_info.stuname,yq_info.specialty,yq_info.grade,yq_chair.chTerm  HAVING total $strBuilder limit $offset,$pagesize ";
+			
+			$sqlstr="select stuno, stuname, grade from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' group by yq_info.stuno,yq_info.stuname,yq_info.grade HAVING count(yq_info.stuno) $strBuilder limit $offset,$pagesize ";
 	
 		}else {
-			$sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair whereyq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' and chTerm = '$strTerm' GROUP BY stuno  HAVING total $strBuilder limit $offset,$pagesize ";
+			$sqlstr="select yq_info.stuno , yq_info.stuname ,yq_info.specialty, yq_info.grade,count(stuno) as total from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' and chTerm = '$strTerm' group by yq_info.stuno,yq_info.stuname,yq_info.specialty,yq_info.grade,yq_chair.chTerm  HAVING total $strBuilder  order by yq_info.stuno  limit $offset,$pagesize ";
 	
 		}
 	
@@ -68,7 +70,7 @@ if(isset($_GET['operation'])){
 	
 	}
 	
-// 		   $sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqChair=yq_info.stuno and yq_clickcard.yqBookChair=yq_chair.id and grade = '$grade' and chTerm = '$term'  GROUP BY stuno  HAVING total $strBuilder limit $offset,$pagesize";
+// 		   $sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqChair=yq_info.stuno and yq_clickcard.yqBookChair=yq_chair.id and grade = '$grade' and chTerm = '$term'  group by yq_info.stuno,yq_info.stuname,yq_info.specialty,yq_info.grade,yq_chair.chTerm  HAVING total $strBuilder limit $offset,$pagesize";
 	
 	$rs =  mysql_query ( $sqlstr ) or die ( "sqlstrA数据库请求失败！" );
 	
@@ -97,10 +99,10 @@ if(isset($_GET['operation'])){
 		$strTerm = ($_GET['term']=='')?"":$_GET['term'];
 		$term = ($_GET['term']=='')?"全部":$_GET['term'];
 		if($_GET['term']=='') {
-			$sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' GROUP BY stuno  limit $offset,$pagesize ";
+			$sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair where yq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' group by yq_info.stuno,yq_info.stuname,yq_info.specialty,yq_info.grade,yq_chair.chTerm  limit $offset,$pagesize ";
 	
 		}else {
-			$sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair whereyq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' and chTerm = '$strTerm' GROUP BY stuno  limit $offset,$pagesize ";
+			$sqlstr="select stuno, stuname, grade,chTerm,count(*) as total from yq_clickcard,yq_info,yq_chair whereyq_clickcard.yqNum=yq_info.stuno and yq_clickcard.yqChair=yq_chair.id  and grade='$grade' and chTerm = '$strTerm' group by yq_info.stuno,yq_info.stuname,yq_info.specialty,yq_info.grade,yq_chair.chTerm  limit $offset,$pagesize ";
 	
 		}
 	
@@ -121,17 +123,17 @@ if(isset($_GET['operation'])){
 	//计算记录偏移量
 	$offset=$pagesize*($page - 1);
 	//读取指定记录数
-	$sqlstr1="select stuno, stuname, grade, count(*) as total from yq_clickcard,yq_info where yq_clickcard.yqNum=yq_info.stuno  GROUP BY stuno";
+	$sqlstr1="select stuno, stuname, grade, count(*) as total from yq_clickcard,yq_info where yq_clickcard.yqNum=yq_info.stuno  group by yq_info.stuno,yq_info.stuname,yq_info.grade";
 	
-	$rs1 =  mysql_query ( $sqlstr1 ) or die ( "sqlstrC数据库请求失败！" );
+	$rs1 =  mysql_query ( $sqlstr1 ) or die ( "sqlstrC1数据库请求失败！" );
 	
 	$numrows=200;
 	
 	$pages=intval($numrows/$pagesize);
 	
-	$sqlstr="select stuno, stuname, grade, count(*) as total from yq_clickcard,yq_info where yq_clickcard.yqNum=yq_info.stuno  GROUP BY stuno limit $offset,$pagesize";
+	$sqlstr="select stuno, stuname, grade, count(*) as total from yq_clickcard,yq_info where yq_clickcard.yqNum=yq_info.stuno  group by yq_info.stuno,yq_info.stuname,yq_info.grade limit $offset,$pagesize";
 	
-	$rs =  mysql_query ( $sqlstr ) or die ( "sqlstrC数据库请求失败！" );
+	$rs =  mysql_query ( $sqlstr ) or die ( "sqlstrC2数据库请求失败！" );
 }
 
 

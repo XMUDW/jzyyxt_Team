@@ -105,7 +105,7 @@ body {
 }
 
 @media ( min-width : 768px) {
-	。prompt {
+	.prompt {
 		width: 250px;
 		hight: 350px;
 		top: 41%;
@@ -359,14 +359,13 @@ a:hover::after { content: "\5D"; right:  -20px; }
 		box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.6);
 		opacity: 1;
 		min-width: 450px;
-		width: 100%; 
+		width: inherit; 
 		height : atuo;
 		margin: 0 auto;
 		text-align: center;
 		position: relative;
 		bottom: -10%;
 		z-index: 0;
-		border-radius: 5px;
 		font-size: 15;
 		color: gray;
 		height: atuo;
@@ -1531,6 +1530,7 @@ tbody {
 @media (max-width: 767px){ 
 	.query_form {
 	text-align: left;
+	font-size: small;
 	}
 .query_form #search_content{
 	width: 40%;

@@ -264,7 +264,7 @@ $(function(){
 	var clock2 = $("#clock2").clock({
 		width: 150,
 		height: 220,
-		theme: 't3'
+		theme: 't2'
 	});	
    });
 

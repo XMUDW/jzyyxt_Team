@@ -100,7 +100,7 @@ require_once 'openDB.php';
 
 
 		<div class="content_r fr">
-		<img  src="images/xmu3.jpg" class="imglogo"/>
+<!-- 		<img  src="images/xmu3.jpg" class="imglogo"/> -->
 			<div id="right-content" class="main-home">
  				
 			</div>
@@ -131,6 +131,9 @@ $(function(){
 	});
 	$("#add_student").click(function(){
 		$("#right-content").load("m_student_manage.php");
+	});
+	$("#manage_paper").click(function(){
+		$("#right-content").load("m_manage_paper.php");
 	});
 	$("#manage_chair").click(function(){
 		$("#right-content").load("m_chair_manage.php");
